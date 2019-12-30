@@ -1,0 +1,29 @@
+usage: ml_tree_maker.py [-h] -i INP [-o OUT] [-m MAKER] [-t TYPE] [-s MODEL]
+                        [-n BOOT] [-c CPU]
+
+This program does alignment of protein or DNA sequences using muscle, trim the
+alignment using Gblock, and reconstruct ML phylogenetic trees using RAxML or
+FastTree. Do NOT run multiple sequence files in the same folder because they
+generate the same intermediate files.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INP, --input INP   Input fasta file
+  -o OUT, --output OUT  Output newick file of tree [Default: ml.nwk]
+  -m MAKER, --maker MAKER
+                        Tree maker, FastTree or RAxML [Default: RAxML]
+  -t TYPE, --type TYPE  Data type, d for DNA, p for protein, c for codon
+                        [Default: d]
+  -s MODEL, --model MODEL
+                        Substitution model, RAxML: GTRCAT, GTRCATI, GTRGAMMA
+                        or GTRGAMMI for nucleotide data, PROTGAMMALG or
+                        PROTGAMMAJTT for amino acid data; FastTree: '-gtr
+                        -gamma' for nucleotide data, '-lg -gamma' for amino
+                        acid data [Default: RAxML => GTRGAMMA for nucleotide,
+                        PROTGAMMALG for amino acid; FastTre => -gtr -gamma for
+                        nucleotide, -lg -gamma for amino acid]
+  -n BOOT, --bootstrap BOOT
+                        Number of bootstrap replicates, only for RAxML
+                        [Default: 100]
+  -c CPU, --cpu CPU     CUP cores to use [Default: 10]
+
